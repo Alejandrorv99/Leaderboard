@@ -23,6 +23,8 @@ public class Leaderboard {
 	public static void main( String [] args )
 	{
 		leerNombre();
+		leerDatos (); 
+		mostrarProm (); 
 	}
 	
 	public static void leerNombre() 
@@ -38,22 +40,46 @@ public class Leaderboard {
 	{	
 		
 		Scanner lectorConsola = new Scanner(System.in);
-		//Recorrer Arreglo:
+		nombresJugadores = new String[NUM_JUGADORES];
+		 puntajes = new int[NUM_JUGADORES][2];
+		
+		
+		 //Recorrer Arreglo:
 		for(int i = 0 ; i < NUM_JUGADORES ; i++ )
 		{
-			
 			System.out.println("Ingrese el nombre del jugador:");
 		    //leer cada nombre:
 			nombresJugadores[i] = lectorConsola.next () ;
+			
+			System.out.println("Ingrese el puntaje y el HP:");
+		    //leer cada nombre:
+			puntajes[i][0] = lectorConsola.nextInt ();
+	        puntajes[i][1] = lectorConsola.nextInt ();
 		}
-		
-    }
+			
+		}
+    
 	
 	public static void calcularProm () 
-	{	
+	{	  
+		int totalPuntaje = 0;
+        int totalHP = 0;
+
+    for (int i = 0; i < NUM_JUGADORES; i++) {
+        totalPuntaje += puntajes[i][0];
+        totalHP += puntajes[i][1];
     }
+
+    // Calcular promedio
+    promPuntos = (float) totalPuntaje / NUM_JUGADORES;
+    promHP = (float) totalHP / NUM_JUGADORES;
+    }
+	
+	
 	public static void mostrarProm () 
-	{	
+	{	 
+		System.out.println("Promedio de puntos: " + promPuntos);
+        System.out.println("Promedio de HP: " + promHP);
     }
 	
 	
