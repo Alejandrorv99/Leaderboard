@@ -24,6 +24,7 @@ public class Leaderboard {
 	{
 		leerNombre();
 		leerDatos (); 
+                calcularProm (); 
 		mostrarProm (); 
 	}
 	
